@@ -31,6 +31,7 @@ const createCatCards = (cats) => {
 
     const p3 = document.createElement('p');
     p3.innerHTML = `Owner: ${cat.ownername}`;
+    console.log(cat);
 
     // add selected cat's values to modify form
     const modButton = document.createElement('button');
@@ -96,11 +97,13 @@ const createUserOptions = (users) => {
     list.innerHTML = '';
     users.forEach((user) => {
       // create options with DOM methods
+      console.log(user);
       const option = document.createElement('option');
       option.value = user.user_id;
       option.innerHTML = user.name;
       option.classList.add('light-border');
       list.appendChild(option);
+      console.log(option);
     });
   });
 };
