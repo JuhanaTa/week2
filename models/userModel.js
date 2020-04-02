@@ -9,7 +9,7 @@ const  getUsersList = async () =>{
 
 const getUser = async (id) =>{
   try {
-    const [rows] = await promisePool.query('SELECT * FROM wop_cat WHERE cat_id = ?', [ id ]);
+    const [rows] = await promisePool.query('SELECT * FROM wop_user WHERE user_id = ?', [ id ]);
     return rows;
   } catch (e) {
     console.log('error', e.message);
@@ -18,7 +18,7 @@ const getUser = async (id) =>{
 
 const insertUser = async (user) => {
   try {
-    const [rows] = await promisePool.query('INSERT INTO wop_user (name, email) VALUES (?, ?)', [ user.name, user.email ]);
+    const [rows] = await promisePool.query('INSERT INTO wop_user (name, email, password) VALUES (?, ?, ?)', [ user.name, user.email, user.password ]);
     return rows;
   } catch (e) {
     console.log('error', e.message);

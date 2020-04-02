@@ -24,9 +24,9 @@ const user_post = async (req, res) => {
   try{
     const user = await userModel.insertUser(inUser);
     console.log('inserted', user);
-    res.send(`'added cat: ${user.insertId}'`);
+    res.send(`'added user: ${user.insertId}'`);
   }catch(e){
-    console.error('problem with user_post in catController', e);
+    console.error('problem with user_post in userController', e);
     res.status(500).send(`database insert error: ${e.message}`);
   }
 
