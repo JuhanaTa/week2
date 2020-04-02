@@ -1,6 +1,6 @@
 'use strict';
 const userModel = require('../models/userModel');
-
+const {validationResult} = require('express-validator');
 const users = userModel.users;
 
 const user_list_get = async  (req, res) => {
@@ -16,6 +16,10 @@ const user_get = async (req, res) => {
 
 const user_post = async (req, res) => {
   console.log('user_post', req.body, req.file);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
   const inUser = {
     name: req.body.name,
     email: req.body.email,
