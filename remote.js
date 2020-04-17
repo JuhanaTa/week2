@@ -5,7 +5,6 @@ const express = require('express');
 const app = express();
 
 module.exports = (app, httpPort) => {
-
 app.enable('trust proxy');
 
 

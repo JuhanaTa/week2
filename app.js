@@ -29,7 +29,7 @@ app.use('/auth', authRoute);
 app.use('/cat',passport.authenticate('jwt', {session: false}), catRoute);
 app.use('/user',passport.authenticate('jwt', {session: false}), userRoute);
 
-app.get('/secure', (req, res) => {
+app.get('/', (req, res) => {
     res.send(`Hello Secure World! ${req.secure}`);
 });
 
