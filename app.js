@@ -22,6 +22,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 if (process.env.NODE_ENV === 'production') {
     require('./remote')(app, port);
 } else {
+    console.log('should');
     require('./localhost')(app, port);
 }
 

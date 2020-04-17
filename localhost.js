@@ -6,7 +6,7 @@ const fs = require('fs');
 const httpsPort = 8000;
 
 const sslkey = fs.readFileSync('ssl-key.pem');
-const sslcert = fs.readFileSync('ssl-cert.pem')
+const sslcert = fs.readFileSync('ssl-cert.pem');
 
 const options = {
     key: sslkey,
@@ -20,6 +20,6 @@ const httpsRedirect = (req, res) =>{
 };
 
 module.exports = (app, httpPort) =>{
-    https.createServer(options, app).listen(httpsPort);
-    http.createServer(httpsRedirect).listen(httpPort);
+    https.createServer(options, app).listen(httpsPort, () => {console.log(`${httpsPort}`);});
+    http.createServer(httpsRedirect).listen(httpPort, () => {console.log(`${httpPort}`);});
 };
