@@ -20,7 +20,7 @@ app.use(express.static('uploads'));
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 if (process.env.NODE_ENV === 'production') {
-    require('./remote')(app, process.env.PORT);
+    require('./remote')(app, process);
 } else {
     require('./localhost')(app, port);
 }
