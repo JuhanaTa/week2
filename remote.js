@@ -16,5 +16,6 @@ app.use ((req, res, next) => {
         res.redirect(301, `https://${req.headers.host}${proxypath}${req.url}`);
     }
 });
-
-app.listen(3000);
+module.exports = (app, httpPort) => {
+    app.listen(httpPort);
+};
